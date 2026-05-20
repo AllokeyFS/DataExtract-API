@@ -13,7 +13,7 @@ def test_extract_empty_text():
     response = client.post("/extract/", json={"text": "", "doc_type": "resume"})
     assert response.status_code == 400
 
-@patch("app.routers.extractor.extract_data", new_callable=AsyncMock)
+@patch("app.routers.extract.extract_data", new_callable=AsyncMock)
 def test_extract_resume(mock_extract):
     mock_extract.return_value = {
         "doc_type": "resume",
