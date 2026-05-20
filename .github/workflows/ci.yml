@@ -15,4 +15,9 @@ jobs:
         with:
           python-version: '3.10'
       - run: pip install -r requirements.txt
-      - run: pytest tests/ -v
+      - name: Run tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/dataextract
+          OLLAMA_URL: http://localhost:11434
+          MODEL_NAME: mistral
+        run: pytest tests/ -v
