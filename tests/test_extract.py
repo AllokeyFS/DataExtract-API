@@ -1,6 +1,11 @@
 from fastapi.testclient import TestClient
 from unittest.mock import patch, AsyncMock
 from app.main import app
+from app.database import engine
+from app.models import db_models
+
+# Создаём таблицы перед тестами
+db_models.Base.metadata.create_all(bind=engine)
 
 client = TestClient(app)
 
