@@ -4,9 +4,9 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - OLLAMA_URL=http://host.docker.internal:11434
+      - OLLAMA_URL=http://localhost:11434
       - MODEL_NAME=mistral
-      - DATABASE_URL=postgresql://postgres:09123@host.docker.internal:5432/dataextract
+      - DATABASE_URL=postgresql://postgres:09123@db:5432/dataextract
     depends_on:
       - db
 
